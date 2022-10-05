@@ -1,0 +1,289 @@
+:root {
+    --darkblue: #0a3871;
+}
+
+
+.game-page {
+    margin-bottom: 2.5rem;
+}
+
+.container__game {
+    height: 100%;
+}
+
+.container__ahorcado {
+    margin: 6rem auto 4rem auto;
+    text-align: center;
+    width: 20rem;
+    height: 25rem;
+}
+
+#ahorcado {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.guessed-words {
+    color:#f3f5f6;
+    display: flex;
+    font-size: 1.8rem;
+    justify-content: center;
+}
+
+#words {
+    
+    outline: none;
+    border: none;
+    background: transparent;
+    position: relative;
+    bottom: 3rem;
+    height: 2rem;
+    left: 1rem;
+    width: 90%;
+}
+
+.word {
+    text-align: center;
+    margin: 15px;
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+.guessed {
+    padding: 1rem;
+    border-bottom: 3px solid var(--darkblue);
+}
+
+.wrong-words {
+    color: orangered;
+    display: flex;
+    font-size: 1.2rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.container__btns {
+    display: flex;
+    flex-direction: row;
+    align-content: space-around;
+    gap: 2rem;
+    justify-content: center;
+}
+
+.btn-newGame {
+    background: var(--darkblue);
+    border: none;
+    border-radius: 24px;
+    color: #fff;
+    cursor: pointer;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    height: 67px;
+    width: 332px;
+}
+
+.btn-desist {
+    border: 1px solid var(--darkblue);
+    border-radius: 24px;
+    color: var(--darkblue);
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 400;
+    height: 67px;
+    line-height: 19px;
+    width: 332px;
+}
+
+.modal__win {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #111111bd;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.modal__win--show {
+    opacity: 1;
+    pointer-events: unset;
+    transition: .5s;
+}
+
+.modal__container {
+    background-color: #f3f5f6;
+    border-radius: 10px;
+    color: var(--darkblue);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 10rem;
+    margin: 15em auto;
+    padding: 2em 1.5em;
+    text-align: center;
+    width: 30%;
+    backdrop-filter: blur(10px);
+}
+
+.modal__title {
+    font-size: 2.5rem;
+}
+
+.modal__paragraph {
+    font-size: 1.5rem;
+    margin: 25px 0;
+    color: #495057;
+}
+
+
+.modal__close,
+.modal__close--end {
+    background: var(--darkblue);
+    border-radius: 10px;
+    color: #fff;
+    margin: 0 auto;
+    padding: 1em 2em;
+    text-decoration: none;
+    width: 10%;
+}
+
+
+.modal__close,
+.modal__close--end:active {
+    transform: scale(.95);
+}
+
+.modal__gameOver {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #111111bd;
+    display: flex;
+    opacity: 0;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.modal__gameOver--show {
+    opacity: 1;
+    pointer-events: unset;
+    transition: .5s;
+}
+
+@media (max-width: 820px) {
+    .container__ahorcado {
+        margin-top: 10rem;
+    }
+
+    .container__btns {
+        margin-top: 5rem;
+    }
+
+    .modal__container {
+        width: 40%;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .game-page {
+        margin-bottom: 1.5rem;
+    }
+
+    .container__game {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .container__ahorcado {
+        margin-bottom: 3rem;
+        margin-top: 8rem;
+    }
+
+    #ahorcado {
+        width: 85%;
+    }
+
+    .word {
+        font-size: 1.4rem;
+        margin: 10px;
+        width: .8rem;
+    }
+
+    .guessed {
+        padding: .8rem;
+    }
+
+    .container__btns {
+        flex-direction: column;
+        gap: .8rem;
+        margin-bottom: 10px;
+        margin-top: 0;
+        width: 85%;
+    }
+
+    .btn-newGame,
+    .btn-desist {
+        width: 100%;
+    }
+
+    .modal__container {
+        width: 45%;
+    }
+
+    .modal__title {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 468px) {
+    .word {
+        font-size: 1.2rem;
+        margin: 7px;
+        width: .6rem;
+    }
+
+    .guessed {
+        padding: .6rem;
+    }
+
+    .modal__container {
+        width: 50%;
+    }
+}
+
+@media (max-width: 350px) {
+
+    .container__ahorcado {
+        width: 80%;
+    }
+
+    .word {
+        font-size: 1rem;
+        margin: 6px;
+        width: .5rem;
+    }
+
+    .guessed {
+        padding: .5rem;
+    }
+
+    #words {
+        width: 80%;
+    }
+
+    .modal__container {
+        width: 55%;
+    }
+
+    .modal__title {
+        font-size: 1.7rem;
+    }
+}

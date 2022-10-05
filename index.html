@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juego Ahorcado</title>
+    <link rel="shortcut icon" href="img/icon.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="game.css" />
+    <link rel="stylesheet" href="newWord.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="container-logo">
+      <img src="./img/logo.svg" alt="Logo Alura" />
+    </header>
+
+    <!--Pagina principal -->
+    <section class="home-page">
+      <div class="btns">
+        <button class="btn-start">Iniciar juego</button>
+        <button class="btn-newWord">Añadir una nueva palabra</button>
+      </div>
+    </section>
+
+    <!--Pagina del juego del Ahorcado -->
+    <section class="game-page">
+      <div class="container__game">
+        <div class="container__ahorcado">
+          <img id="ahorcado" alt="ahorcado" />
+        </div>
+        <div class="guessed-words"></div>
+        <input type="text" id="words"placeholder="Pista:empieza poniendo una vocal" onkeyup="guessLetter(this.value)"/>
+        <div class="wrong-words"></div>
+        <div class="container__btns">
+          <button class="btn-newGame">Nuevo juego</button>
+          <button class="btn-desist">Volver</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="modal__win">
+      <div class="modal__container">
+        <h2 class="modal__title">Felicidades!</h2>
+        <p class="modal__paragraph">Ganaste</p>
+        <a href="#" class="modal__close">OK</a>
+      </div>
+    </section>
+
+    <section class="modal__gameOver">
+      <div class="modal__container">
+        <h2 class="modal__title">Perdiste</h2>
+        <p class="modal__paragraph" id="end"></p>
+        <a href="#" class="modal__close--end">OK</a>
+      </div>
+    </section>
+
+    <!--Pagina agregar nueva palabra-->
+    <section class="newWord-page">
+      <div class="container__newWord">
+        <textarea
+          type="text"
+          id="newWord__text"
+          placeholder="Ingrese una nueva palabra"
+        ></textarea>
+        <div class="max__letters">
+          <img src="img/exclamacion.svg" alt="signo de exclamacion" />
+          <p>Máx. de 8 letras</p>
+        </div>
+        <div class="btns__newWord">
+          <button class="btn__save">Guardar y empezar</button>
+          <button class="btn__cancel">Cancelar</button>
+        </div>
+      </div>
+    </section>
+
+    
+    <footer>
+      <div class="container-footer">
+        <p>Creado por DanyDev</p>
+        <a href="https://www.linkedin.com/in/danilophx77/" target="_blank"
+          ><img src="img/iconoLinkedin.svg" alt="logo de linkedin"
+        /></a>
+        <a href="https://github.com/danilophx77" target="_blank"
+          ><img src="img/iconoGithub.svg" alt="logo de github"
+        /></a>
+      </div>
+    </footer>
+    <script src="main.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

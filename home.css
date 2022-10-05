@@ -1,0 +1,149 @@
+
+/** {
+    margin: 0;
+    padding: 0;
+    
+}*/
+
+:root {
+    --darkblue: #fff;
+}
+
+html {
+    font-size: 16px;
+    background-size: auto;
+    background-image: url(https://static.vecteezy.com/system/resources/previews/003/417/797/non_2x/halloween-graveyard-landing-page-web-banner-background-vector.jpg);
+}
+
+body {
+    color: #e0e3f0;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+}
+
+.container-logo {
+    align-items: flex-start;
+    display: flex;
+    left: 40px;
+    position: absolute;
+    top: 40px;
+}
+
+.home-page {
+    height: 95vh;
+}
+
+.btns {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    height: 100%;
+    justify-content: center;
+}
+
+.btn-start {
+    background: var(--darkblue);
+    border-radius: 24px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    font-size: 18px;
+    line-height: 19px;
+    font-weight: 400;
+    padding: 38px;
+    width: 317px;
+}
+
+.btn-start:active {
+    transform: scale(.95);
+}
+
+.btn-start:focus {
+    background-color: #0a2442;
+}
+
+.btn-newWord {
+    background: #F3F5FC;
+    border-radius: 24px;
+    border: 1px solid var(--darkblue);
+    color: var(--darkblue);
+    cursor: pointer;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    font-size: 18px;
+    line-height: 19px;
+    font-weight: 400;
+    padding: 24px;
+    width: 284px;
+}
+
+.btn-newWord:active {
+    transform: scale(.95);
+}
+
+
+.btn-newWord:focus {
+    background-color: #e0e3f0;
+}
+
+
+.container-footer {
+    align-items: center;
+    color: var(--darkblue);
+    display: flex;
+    font-size: 18px;
+    line-height: 19px;
+    gap: 10px;
+    justify-content: center;
+}
+
+.container-footer a {
+    margin-bottom: 5px;
+}
+.container-footer p{
+    color: #fff;
+}
+::placeholder { 
+    color:orangered;
+    text-shadow: 2px 2px 3px black;
+    font-size: 20px;
+}
+
+
+@media (max-width: 900px) {
+    .btn-start .btn-newWord {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .home-page {
+        height: 93vh;
+    }
+
+    .container-logo {
+        left: 20px;
+    }
+
+    .btns {
+        gap: 1rem;
+    }
+
+    .btn-start {
+        font-size: 14px;
+        width: 257px;
+    }
+
+    .btn-newWord {
+        font-size: 14px;
+        width: max-content;
+    }
+
+    .container-footer {
+        font-size: 14px;
+        
+    }
+    
+}
