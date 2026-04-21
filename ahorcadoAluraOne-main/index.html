@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Juego del Ahorcado</title>
+    <link rel="shortcut icon" href="img/icon.svg" type="image/x-icon" />
+    <link rel="stylesheet" href="home.css" />
+    <link rel="stylesheet" href="game.css" />
+    <link rel="stylesheet" href="newWord.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="container-logo">
+      <img src="./img/logo.svg" alt="Logo Alura" />
+      <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">🌙</button>
+    </header>
+
+    <!-- Pagina principal -->
+    <section class="home-page" role="main" aria-label="Página principal">
+      <div class="home-card">
+        <div class="brand">
+          <p class="eyebrow">Clásico renovado</p>
+          <h1>Juego del Ahorcado</h1>
+          <p class="lead">
+            Adivina la palabra, cuida tus vidas y mantén la racha. Ahora con
+            teclado en pantalla, pistas y estadísticas.
+          </p>
+        </div>
+
+        <div class="home-actions">
+          <label class="field">
+            <span>Dificultad</span>
+            <select id="difficultySelect" class="select">
+              <option value="easy">Fácil</option>
+              <option value="normal" selected>Normal</option>
+              <option value="hard">Difícil</option>
+            </select>
+          </label>
+
+          <div class="home-stats">
+            <div class="stat-card">
+              <span class="stat-label">Partidas</span>
+              <strong id="statGames">0</strong>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Racha</span>
+              <strong id="statStreak">0</strong>
+            </div>
+            <div class="stat-card">
+              <span class="stat-label">Mejor tiempo</span>
+              <strong id="statBestTime">--:--</strong>
+            </div>
+          </div>
+
+          <div class="btns">
+            <button class="btn-start">Iniciar juego</button>
+            <button class="btn-newWord">Añadir una nueva palabra</button>
+          </div>
+
+          <details class="rules">
+            <summary>Reglas rápidas</summary>
+            <p>
+              Tienes 7 errores antes de perder. En modo Fácil se revelan las
+              vocales, en Normal solo una pista, y en Difícil no hay pistas.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pagina del juego del Ahorcado -->
+    <section class="game-page" role="main" aria-label="Juego del ahorcado">
+      <div class="game-card">
+        <div class="game-header">
+          <div class="badge">Dificultad: <span id="difficultyLabel">Normal</span></div>
+          <div class="pill">Vidas: <span id="livesLeft">7</span></div>
+          <div class="pill">Tiempo: <span id="timer">00:00</span></div>
+          <div class="pill">Racha: <span id="liveStreak">0</span></div>
+        </div>
+
+        <div class="game-main">
+          <div class="container__ahorcado">
+            <img id="ahorcado" src="img/ahorcado01.png" alt="Ahorcado - Estado inicial" />
+            <div class="zombie-glow"></div>
+          </div>
+
+          <div class="guess-area">
+            <div class="guessed-words"></div>
+            <p class="word-hint" id="wordHint">Palabra de 0 letras</p>
+
+            <div class="input-row">
+              <input
+                type="text"
+                id="letterInput"
+                maxlength="1"
+                placeholder="Escribe una letra"
+                autocomplete="off"
+              />
+              <button class="btn-secondary" id="btnHint">Pista</button>
+              <button class="btn-ghost" id="btnSkip">Saltar</button>
+            </div>
+
+            <div class="wrong-words"></div>
+            <div class="keyboard" id="keyboard"></div>
+          </div>
+        </div>
+
+        <div class="container__btns">
+          <button class="btn-newGame">Nuevo juego</button>
+          <button class="btn-desist">Volver</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="modal__win">
+      <div class="modal__container">
+        <h2 class="modal__title">¡Felicidades!</h2>
+        <p class="modal__paragraph">Ganaste esta ronda.</p>
+        <a href="#" class="modal__close">OK</a>
+      </div>
+    </section>
+
+    <section class="modal__gameOver">
+      <div class="modal__container">
+        <h2 class="modal__title">Perdiste</h2>
+        <p class="modal__paragraph" id="end"></p>
+        <a href="#" class="modal__close--end">OK</a>
+      </div>
+    </section>
+
+    <!-- Pagina agregar nueva palabra -->
+    <section class="newWord-page">
+      <div class="container__newWord">
+        <div class="newword-header">
+          <h2>Agregar palabra</h2>
+          <p>Se guarda en tu navegador. Máximo 12 letras.</p>
+        </div>
+
+        <textarea
+          id="newWord__text"
+          placeholder="Escribe tu nueva palabra"
+          maxlength="12"
+        ></textarea>
+
+        <div class="max__letters">
+          <img src="img/exclamacion.svg" alt="signo de exclamación" />
+          <p>
+            <span id="wordCounter">0</span>/12 • Solo letras (A-Z, Ñ). Sin
+            espacios.
+          </p>
+        </div>
+
+        <div class="saved-words" id="savedWords"></div>
+
+        <div class="btns__newWord">
+          <button class="btn__save">Guardar y empezar</button>
+          <button class="btn__cancel">Cancelar</button>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container-footer">
+        <p>Creado por DanyDev</p>
+        <a href="https://www.linkedin.com/in/danilophx77/" target="_blank"
+          ><img src="img/iconoLinkedin.svg" alt="logo de linkedin"
+        /></a>
+        <a href="https://github.com/danilophx77" target="_blank"
+          ><img src="img/iconoGithub.svg" alt="logo de github"
+        /></a>
+      </div>
+    </footer>
+
+    <script src="main.js"></script>
+  </body>
+</html>

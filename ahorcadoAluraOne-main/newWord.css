@@ -1,0 +1,225 @@
+/* ============================================
+   NEW WORD PAGE - CSS MEJORADO
+   ============================================ */
+
+.newWord-page {
+  font-family: "Space Grotesk", sans-serif;
+  padding: 120px 24px 60px;
+  animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.container__newWord {
+  width: min(860px, 92vw);
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: stretch;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* --- HEADER --- */
+.newword-header h2 {
+  font-size: 2rem;
+  margin-bottom: 8px;
+  background: linear-gradient(135deg, var(--text), var(--accent-2));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.newword-header p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* --- TEXTAREA --- */
+#newWord__text {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 1.4rem;
+  height: 180px;
+  resize: none;
+  outline: none;
+  width: 100%;
+  border-radius: 18px;
+  padding: 16px;
+  color: var(--text);
+  font-family: "Fira Mono", monospace;
+  transition: all 0.2s ease;
+}
+
+#newWord__text::placeholder {
+  color: rgba(248, 250, 252, 0.5);
+}
+
+#newWord__text:hover {
+  border-color: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+#newWord__text:focus {
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 0 0 0 3px rgba(56, 189, 248, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* --- CONTADOR DE LETRAS --- */
+.max__letters {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.max__letters img {
+  width: 20px;
+  height: 20px;
+  filter: brightness(0) saturate(100%) invert(56%) sepia(96%) saturate(382%) hue-rotate(156deg) brightness(101%) contrast(92%);
+}
+
+.max__letters p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+#wordCounter {
+  color: var(--accent-2);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* --- PALABRAS GUARDADAS --- */
+.saved-words {
+  font-size: 0.95rem;
+  color: var(--muted);
+  min-height: 24px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.2s ease;
+}
+
+/* --- BOTONES --- */
+.btns__newWord {
+  display: flex;
+  gap: 16px;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.btn__save,
+.btn__cancel {
+  border-radius: 18px;
+  border: none;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn__save {
+  background: linear-gradient(120deg, var(--accent), var(--accent-2));
+  color: #0f172a;
+  font-size: 1rem;
+  padding: 14px 26px;
+  min-width: 220px;
+  box-shadow: 0 4px 15px rgba(34, 197, 94, 0.3);
+}
+
+.btn__save:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
+}
+
+.btn__save:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.btn__save:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
+}
+
+.btn__cancel {
+  background: transparent;
+  border: 1px solid rgba(248, 250, 252, 0.4);
+  color: var(--text);
+  font-size: 1rem;
+  padding: 14px 26px;
+  min-width: 180px;
+}
+
+.btn__cancel:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(248, 250, 252, 0.6);
+  transform: translateY(-2px);
+}
+
+.btn__cancel:active {
+  transform: translateY(0) scale(0.98);
+}
+
+/* --- RESPONSIVE --- */
+@media (max-width: 650px) {
+  .container__newWord {
+    padding: 26px;
+  }
+
+  .btns__newWord {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .btn__save,
+  .btn__cancel {
+    width: 100%;
+  }
+
+  #newWord__text {
+    font-size: 1.1rem;
+    height: 140px;
+  }
+
+  .newword-header h2 {
+    font-size: 1.6rem;
+  }
+}
+
+/* --- ACCESIBILIDAD --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* --- FOCUS VISIBLE --- */
+.btn__save:focus-visible,
+.btn__cancel:focus-visible,
+#newWord__text:focus-visible {
+  outline: 2px solid var(--accent-2);
+  outline-offset: 2px;
+}
